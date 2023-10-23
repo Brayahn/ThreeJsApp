@@ -2,7 +2,10 @@ import React from 'react'
 
 const CustomButton = () => {
   return (
-    <div>CustomButton</div>
+   <button
+   >
+
+   </button>
   )
 }
 
