@@ -13,8 +13,8 @@ const Customizer = () => {
   const snap =useSnapshot(state);
 
   const [file, setFile] = useState('');
-  const [prompt, setprompt] = useState('');
-  const [generatingImg, setgeneratingImg] = useState(false);
+  const [prompt, setPrompt] = useState('');
+  const [generatingImg, setGeneratingImg] = useState(false);
   const [activeEditorTab, setactiveEditorTab] = useState('');
   const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
@@ -51,7 +51,17 @@ const Customizer = () => {
 
     try {
       //call backend to genrate AI image
-      
+      setGeneratingImg(true);
+      const response = await fetch('localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.strtingify({
+          prompt, 
+        })
+      })
+
     } catch (error) {
       alert(error)
     }finally{
